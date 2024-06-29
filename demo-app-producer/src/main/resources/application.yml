@@ -1,0 +1,16 @@
+#spring.application.name=demo-app-producer
+spring:
+  application:
+    name: demo-app-producer
+
+  kafka:
+    bootstrap-servers: ${KAFKA_HOST:localhost:9092}
+
+
+
+topico:
+  fake:
+    teste: ${TOPIC_STR:meu_topico_teste}
+
+
+
