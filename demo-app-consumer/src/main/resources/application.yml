@@ -1,0 +1,14 @@
+#spring.application.name=demo-app-consumer
+spring:
+  application:
+    name: demo-app-consumer
+
+  kafka:
+    bootstrap-servers: ${KAFKA_HOST:localhost:9092}
+
+topico:
+  fake:
+    teste: ${TOPIC_DEMO:meu_topico_teste}
+
+server:
+  port: 8085
