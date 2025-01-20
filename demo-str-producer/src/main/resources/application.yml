@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: "str-producer-api"
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+      acks: 1 #all Defina como 1 ou 0 para melhorar a performance (em vez de all, que espera confirmação de todos os replicas).
+      #retries: 3
+
+      # Define o tempo máximo que o produtor espera para agrupar mensagens em um lote antes de enviá-las ao broker.
+      # Aumente esse valor para agrupar mensagens em lotes antes de enviar (por exemplo, 10 ms ou mais)
+      linger-ms: 10
+
+      compression:
+        type: snappy #Use compressão (por exemplo, snappy ou gzip) para reduzir o tamanho das mensagens e melhorar o throughput.
+
+    topic:
+      producer: str-topic
